@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const MainNav = () => (
-  <nav class="main-nav">
+  <nav className="main-nav">
     <ul>
       <li><NavLink to='#'>Cats</NavLink></li>
       <li><NavLink to='#'>Dogs</NavLink></li>

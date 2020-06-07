@@ -5,13 +5,26 @@ import NotFound from './NotFound';
 class ImageContainer extends Component {
 
   render() {
+    const photos = this.props.photos
+    let jsx;
+    let title;
+    
+    if (photos) {
+      title = 'Results'
+      jsx = photos.map(photo => {
+        console.log(photo);
+        return <Photo photo={photo} key={photo.id}/>
+      })
+    } else {
+      title='No Results'
+      jsx = <NotFound />
+    }
+
     return (
-      <main class="photo-container">
-        <h2>Results or No Results</h2>
+      <main className="photo-container">
+        <h2>{title}</h2>
         <ul>
-          {/* Photos */}
-          <Photo />
-          <NotFound />
+          {jsx}
         </ul>
       </main>
     );
