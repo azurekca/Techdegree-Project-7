@@ -9,14 +9,14 @@ class ImageContainer extends Component {
     let jsx;
     let title;
     
-    if (photos) {
+    if (photos.length > 0) {
       title = 'Results'
       jsx = photos.map(photo => {
         console.log(photo);
         return <Photo photo={photo} key={photo.id}/>
       })
     } else {
-      title='No Results'
+      title='Sorry...'
       jsx = <NotFound />
     }
 
