@@ -9,11 +9,11 @@ class SearchForm extends Component {
   handleSubmit = event => {
     // prevent page refresh; call fetch with search term
     event.preventDefault();
-    // this.props.performSearch(this.searchInput.current.value);
 
     // save search to history
     const path = `/search/${this.searchInput.current.value}`;
     console.log(path);
+    this.props.handleLoading();
     this.props.history.push(path);
 
     // reset form input

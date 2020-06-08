@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom'
+
+// React Components
 import Photo from './Photo';
+import HeroImage from './HeroImage';
 
 class PhotoContainer extends Component {
 
   componentDidUpdate() {
     const newQuery = this.props.match.params.query;
     const oldQuery = this.props.query;
+    console.log(newQuery, oldQuery)
     if (newQuery !== oldQuery) {
-     console.log(this.props.match.params.query)
      this.props.performSearch(this.props.match.params.query);
     }
+  }
+
+  componentDidMount() {
+    this.props.performSearch(this.props.match.params.query);
   }
 
   render() {
@@ -18,14 +25,22 @@ class PhotoContainer extends Component {
     let jsx = '';
     let title;
     
-    if (photos.length > 0) {
+    if (this.props.loading) {
+      title='Loading...';
+    } else if (photos.length > 0) {
       title = 'Results'
       jsx = photos.map(photo => {
         console.log(photo);
         return <Photo photo={photo} key={photo.id}/>
       })
     } else {
-      title='Your search did not return any results. Please try again.'
+      jsx = (
+        <HeroImage
+          src={process.env.PUBLIC_URL + "/nothing_to_see_here.jpg"}
+          alt="Nothing to see here... "
+          credit="Image by ceyda koc"
+        />
+      );
     }
 
     return (

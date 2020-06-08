@@ -16,6 +16,10 @@ class App extends Component {
 		loading : true
 	};
 
+	handleLoading = () => {
+		this.setState({loading: true});
+	}
+
 	/* fetch method for getting the photo data */
 	performSearch = query => {
 		fetch(
@@ -35,8 +39,8 @@ class App extends Component {
 	render() {
 		return (
 			<BrowserRouter>
-				<Route  render={() => <SearchForm performSearch={this.performSearch} />} />
-				<Route render={() => <MainNav performSearch={this.performSearch} /> } />
+				<Route  render={() => <SearchForm handleLoading={this.handleLoading} />} />
+				<Route render={() => <MainNav handleLoading={this.handleLoading} /> } />
 				<Switch>
 					<Route exact path={'/'} component={Home} />
 					<Route path={'/search/:query'} render={ () => 
@@ -44,6 +48,7 @@ class App extends Component {
 							performSearch={this.performSearch}
 							photos={this.state.photos}
 							query={this.state.query}
+							loading={this.state.loading}
 						/> } />
 					<Route component={NotFound} />
 				</Switch>
