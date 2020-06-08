@@ -5,13 +5,13 @@ const MainNav = ({handleLoading}) => (
 	<nav className="main-nav">
 		<ul>
 			<li>
-				<NavLink to="/search/hearts" onClick={handleLoading}>Hearts</NavLink>
+				<NavLink to="/search/rock" onClick={handleLoading}>Rock</NavLink>
 			</li>
 			<li>
-				<NavLink to="/search/moons" onClick={handleLoading}>Moons</NavLink>
+				<NavLink to="/search/paper" onClick={handleLoading}>Paper</NavLink>
 			</li>
 			<li>
-				<NavLink to="/search/clovers" onClick={handleLoading}>Clovers</NavLink>
+				<NavLink to="/search/scissors" onClick={handleLoading}>Scissors</NavLink>
 			</li>
 		</ul>
 	</nav>
