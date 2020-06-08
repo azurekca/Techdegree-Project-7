@@ -7,6 +7,7 @@ import HeroImage from './HeroImage';
 
 class PhotoContainer extends Component {
 
+  // check if url query parameter changed, fetch new data if it did, set loading state to false if it did not
   componentDidUpdate() {
     const newQuery = this.props.match.params.query;
     const oldQuery = this.props.query;
@@ -18,6 +19,7 @@ class PhotoContainer extends Component {
     }
   }
 
+  // fetch new data when component mounts
   componentDidMount() {
     this.props.performSearch(this.props.match.params.query);
   }

@@ -7,12 +7,13 @@ class SearchForm extends Component {
   searchInput = React.createRef();
   
   handleSubmit = event => {
-    // prevent page refresh; call fetch with search term
+    // prevent page refresh
     event.preventDefault();
 
-    // save search to history
+    // perform search by adding search to history
+    // this works by setting loading state to true; triggers re-render
+    // PhotoContainer handles updated url and triggers fetching new data 
     const path = `/search/${this.searchInput.current.value}`;
-    console.log(path);
     this.props.handleLoading();
     this.props.history.push(path);
 
