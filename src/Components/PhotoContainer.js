@@ -13,6 +13,8 @@ class PhotoContainer extends Component {
     console.log(newQuery, oldQuery)
     if (newQuery !== oldQuery) {
      this.props.performSearch(this.props.match.params.query);
+    } else if (this.props.loading) {
+      this.props.handleLoading(false);
     }
   }
 

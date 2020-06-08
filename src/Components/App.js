@@ -16,14 +16,14 @@ class App extends Component {
 		loading : true
 	};
 
-	handleLoading = () => {
-		this.setState({loading: true});
+	handleLoading = (bool = true) => {
+		this.setState({loading: bool});
 	}
 
 	/* fetch method for getting the photo data */
 	performSearch = query => {
 		fetch(
-			`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_KEY}&tags=${query}&per_page=20&format=json&nojsoncallback=1`
+			`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_KEY}&tags=${query}&per_page=20&sort=relevance&safe_search=1&format=json&nojsoncallback=1`
 		)
 			.then(response => response.json())
 			.then(responseData =>
@@ -49,6 +49,7 @@ class App extends Component {
 							photos={this.state.photos}
 							query={this.state.query}
 							loading={this.state.loading}
+							handleLoading={this.handleLoading}
 						/> } />
 					<Route component={NotFound} />
 				</Switch>
