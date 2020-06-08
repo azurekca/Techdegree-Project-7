@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import SearchSVG from './SearchSVG';
 
 class SearchForm extends Component {
@@ -6,11 +7,19 @@ class SearchForm extends Component {
   searchInput = React.createRef();
   
   handleSubmit = event => {
+    // prevent page refresh; call fetch with search term
     event.preventDefault();
-    this.props.performSearch(this.searchInput.current.value);
-    console.log(this.searchInput.current.value);
+    // this.props.performSearch(this.searchInput.current.value);
+
+    // save search to history
+    const path = `/search/${this.searchInput.current.value}`;
+    console.log(path);
+    this.props.history.push(path);
+
+    // reset form input
     event.currentTarget.reset();
   }
+
 
   render() {
     return (
@@ -29,4 +38,4 @@ class SearchForm extends Component {
   };
 }
 
-export default SearchForm;
+export default withRouter(SearchForm);

@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom'
 import Photo from './Photo';
-import NotFound from './NotFound';
 
-class ImageContainer extends Component {
+class PhotoContainer extends Component {
+
+  componentDidUpdate() {
+    const newQuery = this.props.match.params.query;
+    const oldQuery = this.props.query;
+    if (newQuery !== oldQuery) {
+     console.log(this.props.match.params.query)
+     this.props.performSearch(this.props.match.params.query);
+    }
+  }
 
   render() {
     const photos = this.props.photos
-    let jsx;
+    let jsx = '';
     let title;
     
     if (photos.length > 0) {
@@ -16,8 +25,7 @@ class ImageContainer extends Component {
         return <Photo photo={photo} key={photo.id}/>
       })
     } else {
-      title='Sorry...'
-      jsx = <NotFound />
+      title='Your search did not return any results. Please try again.'
     }
 
     return (
@@ -31,4 +39,4 @@ class ImageContainer extends Component {
   };
 }
 
-export default ImageContainer;
+export default withRouter(PhotoContainer);
