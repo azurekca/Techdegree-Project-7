@@ -2,8 +2,8 @@ import React from 'react';
 
 const NotFound = () => (
   <section className="not-found">
-    <h3>404 Error</h3>
-    <p>Page Not Found</p>
+    <h2>404</h2>
+    <h3>Page Not Found</h3>
   </section>
 );
 
