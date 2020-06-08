@@ -38,8 +38,8 @@ class App extends Component {
 
 	render() {
 		return (
-			<BrowserRouter>
-				<Route  render={() => <SearchForm handleLoading={this.handleLoading} />} />
+			<BrowserRouter basename="/Techdegree-Project-7">
+				<Route render={() => <SearchForm handleLoading={this.handleLoading} />} />
 				<Route render={() => <MainNav handleLoading={this.handleLoading} /> } />
 				<Switch>
 					<Route exact path={'/'} component={Home} />
