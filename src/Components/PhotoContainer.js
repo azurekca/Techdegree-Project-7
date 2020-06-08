@@ -39,6 +39,7 @@ class PhotoContainer extends Component {
           src={process.env.PUBLIC_URL + "/nothing_to_see_here.jpg"}
           alt="Nothing to see here... "
           credit="Image by ceyda koc"
+          cssClass=""
         />
       );
     }

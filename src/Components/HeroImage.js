@@ -1,10 +1,10 @@
 import React from 'react';
 
 const HeroImage = (props) => {
-  const {src, alt, credit} = props;
+  const {src, alt, credit, cssClass} = props;
   return (
       <figure className="hero-image">
-        <img src={src} alt={alt}></img>
+        <img className={cssClass} src={src} alt={alt}></img>
         <figcaption>
           <span className="image-credit">{credit}</span>
         </figcaption>
