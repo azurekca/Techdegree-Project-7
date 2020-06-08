@@ -24,6 +24,8 @@
 
  - Chrome
  - Firefox
+ - Edge
+ - Chrome for Android
 
  ### Author
 
