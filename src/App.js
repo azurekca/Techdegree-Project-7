@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import API_KEY from '../config';
+import API_KEY from './config';
 
 // React Components
-import Home from './Home'
-import MainNav from './MainNav';
-import SearchForm from './SearchForm';
-import PhotoContainer from './PhotoContainer';
-import NotFound from './NotFound';
+import Home from './Components/Home'
+import MainNav from './Components/MainNav';
+import SearchForm from './Components/SearchForm';
+import PhotoContainer from './Components/PhotoContainer';
+import NotFound from './Components/NotFound';
 
 class App extends Component {
 	state = {
