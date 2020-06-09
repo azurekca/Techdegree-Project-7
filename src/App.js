@@ -38,7 +38,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<HashRouter basename="/Techdegree-Project-7">
+			<HashRouter>
 				<Route render={() => <SearchForm handleLoading={this.handleLoading} />} />
 				<Route render={() => <MainNav handleLoading={this.handleLoading} /> } />
 				<Switch>
