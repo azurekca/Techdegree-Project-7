@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch, HashRouter } from 'react-router-dom';
 import API_KEY from './config';
 
 // React Components
@@ -38,7 +38,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<BrowserRouter basename="/Techdegree-Project-7">
+			<HashRouter basename="/Techdegree-Project-7">
 				<Route render={() => <SearchForm handleLoading={this.handleLoading} />} />
 				<Route render={() => <MainNav handleLoading={this.handleLoading} /> } />
 				<Switch>
@@ -53,7 +53,7 @@ class App extends Component {
 						/> } />
 					<Route path={'/'} component={NotFound} />
 				</Switch>
-			</BrowserRouter>
+			</HashRouter>
 
 		);
 	}
