@@ -51,7 +51,7 @@ class App extends Component {
 							loading={this.state.loading}
 							handleLoading={this.handleLoading}
 						/> } />
-					<Route component={NotFound} />
+					<Route path={'/'} component={NotFound} />
 				</Switch>
 			</BrowserRouter>
 
