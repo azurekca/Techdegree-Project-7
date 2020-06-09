@@ -11,7 +11,7 @@ class PhotoContainer extends Component {
   componentDidUpdate() {
     const newQuery = this.props.match.params.query;
     const oldQuery = this.props.query;
-    console.log(newQuery, oldQuery)
+
     if (newQuery !== oldQuery) {
      this.props.performSearch(this.props.match.params.query);
     } else if (this.props.loading) {
@@ -34,7 +34,6 @@ class PhotoContainer extends Component {
     } else if (photos.length > 0) {
       title = 'Results'
       jsx = photos.map(photo => {
-        console.log(photo);
         return <Photo photo={photo} key={photo.id}/>
       })
     } else {
