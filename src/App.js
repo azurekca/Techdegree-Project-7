@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, Switch, HashRouter } from 'react-router-dom';
+import { Route, Switch, HashRouter } from 'react-router-dom';
 import API_KEY from './config';
 
 // React Components
